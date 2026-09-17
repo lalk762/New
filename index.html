@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUSH//RECORD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-main">RUSH<span>//</span>RECORD</div>
+        <div class="brand-sub">PLAY · BEAT · SET RECORDS</div>
+      </div>
+      <nav class="topnav">
+        <button class="nav active" data-page="home">⌂ <span>Главная</span></button>
+        <button class="nav" data-page="games">🎮 <span>Игры</span></button>
+        <button class="nav" data-page="leaderboard">🏆 <span>Таблица рекордов</span></button>
+        <button class="nav" data-page="profile">♙ <span>Профиль</span></button>
+        <button class="nav" data-page="achievements">✦ <span>Достижения</span></button>
+      </nav>
+      <div class="userbox">
+        <div class="avatar">D</div>
+        <div><b>Damir</b><small>Уровень <span id="level">1</span></small></div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="side-title">ИГРЫ</div>
+        <button class="game-side active" data-mode="aim">◉ <span>Aim Rush</span><em>NEW</em></button>
+        <button class="game-side" data-mode="reaction">ϟ <span>Reaction</span></button>
+        <button class="game-side" data-mode="stack">◇ <span>Stack</span></button>
+        <button class="game-side" data-mode="dodge">△ <span>Dodge</span></button>
+        <button class="game-side" data-mode="memory">✿ <span>Memory</span></button>
+        <button class="game-side" data-mode="click">◉ <span>Click Economy</span></button>
+        <button class="game-side" data-mode="endless">∞ <span>Endless</span></button>
+
+        <div class="side-title other">ПРОЧЕЕ</div>
+        <button class="side-link" data-page="leaderboard">🏆 <span>Таблица рекордов</span></button>
+        <button class="side-link" data-page="achievements">☆ <span>Достижения</span></button>
+        <button class="side-link" data-page="profile">♙ <span>Профиль</span></button>
+        <button class="side-link">⚙ <span>Настройки</span></button>
+
+        <div class="legend">
+          <b>♛ Стань легендой!</b>
+          <p>Бей рекорды, поднимайся в рейтинге и получай уникальные награды!</p>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div id="page-home" class="page active">
+          <section class="hero">
+            <div class="hero-copy">
+              <div class="target-icon">◎</div>
+              <div>
+                <div class="eyebrow">НОВЫЙ РЕЖИМ</div>
+                <h1>AIM RUSH <span>NEW</span></h1>
+                <p>Попадай по целям за 30 секунд и установи новый рекорд!</p>
+                <div class="meta">◷ 30 секунд &nbsp; · &nbsp; ◎ Максимум очков</div>
+                <button class="play-btn" data-start="aim">▶ ИГРАТЬ</button>
+              </div>
+            </div>
+            <div class="world-record">
+              <div>♛</div><small>МИРОВОЙ РЕКОРД</small>
+              <strong id="hero-record">18 942</strong>
+              <span>Очков</span>
+              <p>Игрок: ShadowX</p>
+            </div>
+          </section>
+
+          <div class="section-head"><h2>ВСЕ РЕЖИМЫ</h2></div>
+          <div class="dashboard-grid">
+            <div class="mode-grid" id="mode-grid"></div>
+            <aside class="right-column">
+              <div class="panel daily">
+                <div class="panel-title">РЕКОРД ДНЯ</div>
+                <div class="daily-inner">
+                  <label>★ TODAY'S CHALLENGE</label>
+                  <h3>DODGE</h3><p>60 секунд</p>
+                  <b>WORLD RECORD:<br><span>♛ 94 821</span></b>
+                  <button class="pink-btn" data-start="dodge">ИГРАТЬ СЕЙЧАС</button>
+                  <small>◷ До конца дня: <span id="countdown">--:--:--</span></small>
+                </div>
+              </div>
+              <div class="panel profile-mini">
+                <div class="panel-title">ТВОЙ ПРОФИЛЬ</div>
+                <div class="mini-user"><div class="avatar big">D</div><div><b>Damir ♛</b><small>Уровень <span id="level2">1</span></small></div></div>
+                <div class="xp"><i id="xpbar"></i></div>
+                <div class="mini-stats"><span>Лучший результат <b id="best">0</b></span><span>Место в рейтинге <b>#--</b></span><span>Всего рекордов <b id="records">0</b></span></div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="panel stats">
+            <div><b id="stat-records">0</b><span>Рекордов</span></div>
+            <div><b id="stat-rank">#--</b><span>Место в рейтинге</span></div>
+            <div><b id="stat-ach">0</b><span>Достижений</span></div>
+            <div><b id="stat-streak">0</b><span>Дней подряд</span></div>
+            <p>«Предел существует<br>только в твоей голове.»<br>— RUSH//RECORD</p>
+          </div>
+        </div>
+
+        <div id="page-games" class="page"><div class="page-card"><h2>🎮 ИГРЫ</h2><p>Выбери режим и попробуй установить личный рекорд.</p><div class="big-game-list" id="big-game-list"></div></div></div>
+        <div id="page-leaderboard" class="page"><div class="page-card"><h2>🏆 ГЛОБАЛЬНЫЙ РЕЙТИНГ</h2><div class="tabs"><button class="tab active">Топ 100</button><button class="tab">Все</button></div><div id="leaderboard-list"></div></div></div>
+        <div id="page-profile" class="page"><div class="page-card profile-page"><div class="avatar huge">D</div><h2>Damir ♛</h2><p>Уровень <span id="level3">1</span></p><div class="xp"><i id="xpbar2"></i></div><h3>Статистика</h3><div class="profile-cards"><div>Рекорды<b id="p-records">0</b></div><div>Лучший счёт<b id="p-best">0</b></div><div>Достижения<b id="p-ach">0</b></div></div></div></div>
+        <div id="page-achievements" class="page"><div class="page-card"><h2>✦ ДОСТИЖЕНИЯ</h2><div class="ach-list" id="ach-list"></div></div></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="game-overlay" class="overlay hidden">
+    <div class="game-window">
+      <div class="game-header"><b id="game-title">AIM RUSH</b><span id="game-status">Готово</span><button id="close-game">×</button></div>
+      <div class="game-info"><span>Счёт: <b id="score">0</b></span><span>Время: <b id="timer">30</b></span><span>Рекорд: <b id="game-best">0</b></span></div>
+      <div id="game-area"><div class="game-start"><h2>Готов?</h2><p>Нажимай на цели как можно быстрее.</p><button class="play-btn" id="real-start">НАЧАТЬ</button></div></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
